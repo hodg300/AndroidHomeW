@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 //                show me a message with TODA:) in the same time that i click on done
 //                Toast.makeText(getApplicationContext(),"TODA :)",Toast.LENGTH_LONG).show();
-                
+
 //                show in message the sequance that write on editText line
                 EditText textField=(EditText)findViewById(R.id.textField);
                 Toast.makeText(getApplicationContext(),textField.getText(),Toast.LENGTH_LONG).show();
