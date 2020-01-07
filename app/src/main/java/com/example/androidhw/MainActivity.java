@@ -2,6 +2,8 @@ package com.example.androidhw;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -14,20 +16,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        Button doneBtn=(Button)findViewById(R.id.doneBtn);
-        doneBtn.setOnClickListener(new View.OnClickListener() {
+        //gets a view byy ID
+        findViewById(R.id.btn_download).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                show me a message with TODA:) in the same time that i click on done
-//                Toast.makeText(getApplicationContext(),"TODA :)",Toast.LENGTH_LONG).show();
-
-//                show in message the sequance that write on editText line
-                EditText textField=(EditText)findViewById(R.id.textField);
-                Toast.makeText(getApplicationContext(),textField.getText(),Toast.LENGTH_LONG).show();
+                EditText urlEditTxt=findViewById(R.id.input_url);
+                Intent imageDownLoadIntent=new Intent(MainActivity.this,ImageDownloaderActivity.class);
+                imageDownLoadIntent.putExtra("url",urlEditTxt.getText());
+                startActivity(imageDownLoadIntent);
             }
         });
+
 
     }
 }
